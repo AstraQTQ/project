@@ -18,7 +18,7 @@ public class UserController {
          PrintUtil.print("登陆成功！后续功能继续补全");
      }else{
          PrintUtil.print("登陆失败！请重新输入");
-         LoginView.loginView();
+         MainView.mainView();
      }
     }
 

@@ -21,6 +21,19 @@ public class PrintUtil {
     }
     //打印分割线
     public static void print(){
-        System.out.println("=".repeat(10).concat("/n"));
+        System.out.println("=".repeat(10).concat("\n"));
+    }
+    //清空 Scanner 缓冲区中的残留回车符
+    public static String nextLine() {
+        return sc.nextLine();
+    }
+
+    public static int nextInt() {
+        while (!sc.hasNextInt()) {
+            sc.next();
+        }
+        int value = sc.nextInt();
+        sc.nextLine();
+        return value;
     }
 }

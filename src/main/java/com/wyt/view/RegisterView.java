@@ -6,10 +6,20 @@ import com.wyt.util.PrintUtil;
 public class RegisterView {
     //注册界面
     public static void registerView() {
+        PrintUtil.sc.nextLine();
         PrintUtil.print("请输入用户名");
         String inputUsername =PrintUtil.sc.nextLine();
+        if (inputUsername.trim().isEmpty()) {
+            PrintUtil.print("用户名不能为空！");
+            return;
+        }
+
         PrintUtil.print("请输入密码");
         String inputPassword = PrintUtil.sc.nextLine();
+        if (inputPassword.trim().isEmpty()) {
+            PrintUtil.print("密码不能为空！");
+            return;
+        }
         PrintUtil.print("请再次输入密码");
         String inputPasswordAgain = PrintUtil.sc.nextLine();
         if(inputPassword.equals(inputPasswordAgain)){

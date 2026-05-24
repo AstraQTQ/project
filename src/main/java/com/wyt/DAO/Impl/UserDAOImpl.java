@@ -17,7 +17,7 @@ public class UserDAOImpl implements UserDAO {
      // 根据用户名和密码查询匹配的记录数
     @Override
     public int selectByUserNameAndPassword(String username, String password) {
-        String sql = "select count(*) from admin_user where username = ? and password = ?";
+        String sql = "select count(*) from user where username = ? and password = ?";
         int result = 0;
         try (Connection c = DBUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
  //插入新用户
     @Override
     public int insertUser(AdminUser adminUser) {
-        String sql = "insert into admin_user(username,password,phone,email,status,createTime) " +
+        String sql = "insert into user(username,password,phone,email,status,createTime) " +
                 "values(?,?,?,?,?,now())";
         int result = 0;
         Connection c = null;
@@ -88,7 +88,7 @@ public class UserDAOImpl implements UserDAO {
    //根据用户名查询匹配的记录数
     @Override
     public int selectByUsername(String username) {
-        String sql = "select count(*) from admin_user where username = ?";
+        String sql = "select count(*) from user where username = ?";
         int result = 0;
         try (Connection c = DBUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -107,7 +107,7 @@ public class UserDAOImpl implements UserDAO {
    //更新用户信息
     @Override
     public int updateUser(AdminUser adminUser) {
-        String sql = "update admin_user set username = ? ,password = ?,phone=? ,email=? ,createTime=now() where id = ? ";
+        String sql = "update user set username = ? ,password = ?,phone=? ,email=? ,createTime=now() where id = ? ";
         int result = 0;
         try (Connection c = DBUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
@@ -125,7 +125,7 @@ public class UserDAOImpl implements UserDAO {
   //根据用户ID查询用户信息
     @Override
     public AdminUser selectById(Long id) {
-        String sql = "select * from admin_user where id = ?";
+        String sql = "select * from user where id = ?";
         AdminUser adminUser = null;
         try (Connection c = DBUtil.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
