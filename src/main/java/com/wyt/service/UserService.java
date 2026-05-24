@@ -10,5 +10,4 @@ public interface UserService {
      boolean selectUserByUsername(String username);
 
 
-
 }
